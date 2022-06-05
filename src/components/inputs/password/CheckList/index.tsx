@@ -1,7 +1,7 @@
-import React, { useState, useEffect, ReactNode } from "react";
-import { Modal, List } from "./styled";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import React, {useState, useEffect, ReactNode} from 'react';
+import {Modal, List} from './styled';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
 interface CustomIconComponents {
   ValidIcon: React.ReactNode;
@@ -22,14 +22,14 @@ interface PasswordProps {
   iconComponents?: CustomIconComponents;
 }
 export type RuleNames =
-  | "uppercase"
-  | "lowercase"
-  | "number"
-  | "specialChar"
-  | "minLength"
-  | "maxLength"
-  | "match"
-  | "notEmpty";
+  | 'uppercase'
+  | 'lowercase'
+  | 'number'
+  | 'specialChar'
+  | 'minLength'
+  | 'maxLength'
+  | 'match'
+  | 'notEmpty';
 
 export interface ReactPasswordChecklistProps extends PasswordProps {
   className?: string;
@@ -50,7 +50,7 @@ const ReactPasswordProps: React.FC<ReactPasswordChecklistProps> = ({
 }) => {
   const [isValid, setIsValid] = useState(false);
   const ruleDefinitions: {
-    [key in RuleNames]: { valid: boolean; message: string };
+    [key in RuleNames]: {valid: boolean; message: string};
   } = {
     uppercase: {
       valid: (() => {
@@ -69,7 +69,7 @@ const ReactPasswordProps: React.FC<ReactPasswordChecklistProps> = ({
         }
         return false;
       })(),
-      message: messages.uppercase || "Have at least one uppercase letter",
+      message: messages.uppercase || 'Have at least one uppercase letter',
     },
     lowercase: {
       valid: (() => {
@@ -88,17 +88,17 @@ const ReactPasswordProps: React.FC<ReactPasswordChecklistProps> = ({
         }
         return false;
       })(),
-      message: messages.lowercase || "Password has a lowercase letter.",
+      message: messages.lowercase || 'Password has a lowercase letter.',
     },
     number: {
       valid: /\d/g.test(value),
-      message: messages.number || "Have at least one number",
+      message: messages.number || 'Have at least one number',
     },
     specialChar: {
       valid: /[~`¿¡!#$%^&*€£@+÷=\-[\]';,{}()|":<>?._]/g.test(value),
       message:
         messages.specialChar ||
-        "Have at least one special character\n(!@#$...etc)",
+        'Have at least one special character\n(!@#$...etc)',
     },
     minLength: {
       valid: value.length >= (minLength || 100),
@@ -113,11 +113,11 @@ const ReactPasswordProps: React.FC<ReactPasswordChecklistProps> = ({
     },
     match: {
       valid: value.length > 0 && value === valueAgain,
-      message: messages.match || "Passwords match.",
+      message: messages.match || 'Passwords match.',
     },
     notEmpty: {
       valid: Boolean(value.length > 0 && valueAgain && valueAgain.length > 0),
-      message: messages.notEmpty || "Password fields are not empty.",
+      message: messages.notEmpty || 'Password fields are not empty.',
     },
   };
 
@@ -132,7 +132,7 @@ const ReactPasswordProps: React.FC<ReactPasswordChecklistProps> = ({
   }, [value, valueAgain]);
 
   useEffect(() => {
-    if (typeof onChange === "function") {
+    if (typeof onChange === 'function') {
       onChange(isValid);
     }
   }, [isValid]);
@@ -141,7 +141,7 @@ const ReactPasswordProps: React.FC<ReactPasswordChecklistProps> = ({
     <Modal>
       <ul className={className} style={style}>
         {enabledRules.map((rule) => {
-          const { message, valid } = ruleDefinitions[rule];
+          const {message, valid} = ruleDefinitions[rule];
           return (
             <Rule key={rule} valid={valid} {...remainingProps}>
               {message}
@@ -166,11 +166,11 @@ const Rule: React.FC<RuleProps> = ({
   children,
 }) => {
   return (
-    <List className={valid ? "valid" : "invalid"}>
+    <List className={valid ? 'valid' : 'invalid'}>
       {valid ? (
-        <CheckCircleIcon sx={{ color: validColor }} />
+        <CheckCircleIcon sx={{color: validColor}} />
       ) : (
-        <CheckCircleOutlineIcon sx={{ color: invalidColor }} />
+        <CheckCircleOutlineIcon sx={{color: invalidColor}} />
       )}
       <span>{children}</span>
     </List>
@@ -178,8 +178,8 @@ const Rule: React.FC<RuleProps> = ({
 };
 
 ReactPasswordProps.defaultProps = {
-  validColor: "#00D1FF",
-  invalidColor: "#565656",
+  validColor: '#00D1FF',
+  invalidColor: '#565656',
 };
 
 export default ReactPasswordProps;

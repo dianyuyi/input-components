@@ -1,8 +1,7 @@
-import React from 'react'
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import green from "@mui/material/colors/green";
+import React from 'react';
+import {ThemeProvider, createTheme} from '@mui/material/styles';
 
-declare module "@mui/material/styles" {
+declare module '@mui/material/styles' {
   interface Theme {
     palette: {
       primary: object;
@@ -10,8 +9,8 @@ declare module "@mui/material/styles" {
       mode: string;
     };
     typography: {
-      fontFamily: string
-    }
+      fontFamily: string;
+    };
   }
   // 允许配置文件使用 `createTheme`
   interface ThemeOptions {
@@ -22,29 +21,28 @@ declare module "@mui/material/styles" {
       main: string;
     };
     mode?: string;
-    fontFamily?: string
+    fontFamily?: string;
+    MuiPickersToolbar?: {
+      fontSize?: string;
+    };
   }
 }
 
 export const theme = createTheme({
   palette: {
     primary: {
-      main: "#00A3FF",
+      main: '#00A3FF',
     },
-    secondary: {
-      main: green[500],
-    },
-    mode: "dark",
+    mode: 'dark',
   },
   typography: {
-    fontFamily: "'Ubuntu', sans-serif"
-  }
+    fontFamily: '"Ubuntu", "Inter", sans-serif',
+  },
 });
-
 
 interface Props {
   children: React.ReactNode;
 }
-export const Palette:React.FC<Props> = ({ children }) => {
+export const Palette: React.FC<Props> = ({children}) => {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
-}
+};

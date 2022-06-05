@@ -13,7 +13,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint"
   },
   "eslintConfig": {
     "extends": [
@@ -36,9 +37,10 @@
   "devDependencies": {
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
-    "@mui/icons-material": "^5.8.0",
-    "@mui/material": "^5.8.1",
-    "@mui/x-date-pickers": "^5.0.0-alpha.4",
+    "@mui/icons-material": "latest",
+    "@mui/lab": "^5.0.0-alpha.84",
+    "@mui/material": "latest",
+    "@mui/x-date-pickers": "latest",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
@@ -52,10 +54,11 @@
     "@typescript-eslint/parser": "^5.26.0",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.7",
     "babel-jest": "^28.1.0",
-    "date-fns": "^2.28.0",
+    "date-fns": "latest",
     "enzyme": "^3.11.0",
     "eslint": "^8.16.0",
     "eslint-config-google": "^0.14.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.30.0",
     "history": "^5.3.0",
     "jest": "^28.1.0",

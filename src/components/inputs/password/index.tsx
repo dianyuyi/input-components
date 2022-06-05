@@ -1,27 +1,14 @@
-import React, { FC, useState } from "react";
-import styled from "@emotion/styled";
-import TextField from "@mui/material/TextField";
-import Box from "@mui/material/Box";
+import React, {FC, useState} from 'react';
+import Box from '@mui/material/Box';
 
-import Checklist from "./CheckList";
-import { Palette } from "src/styles";
-
-const StyledTextField = styled(TextField)({
-  "& .MuiInputLabel-root": {
-    color: "#fff",
-  },
-  ".MuiOutlinedInput-root": {
-    "& .MuiInputBase-input + fieldset": {
-      borderRadius: "8px",
-      borderWidth: "3px",
-    },
-  },
-});
+import Checklist from './CheckList';
+import CommonTextField from 'src/components/inputs/common';
+import {Palette} from 'src/styles';
 
 const PasswordField: FC = () => {
-  const [password, setPassword] = useState("");
-  const [passwordShow, setPasswordShow] = useState("");
-  const [checkVisible, setCheckVisible] = useState(false);
+  const [password, setPassword] = useState('');
+  const [passwordShow, setPasswordShow] = useState<string>('');
+  const [checkVisible, setCheckVisible] = useState<boolean>(false);
 
   const handleOnChange = (value: string) => {
     let realValue = password;
@@ -33,9 +20,9 @@ const PasswordField: FC = () => {
     setPassword(realValue);
 
     const length = value.length;
-    let hiddenStr = "";
+    let hiddenStr = '';
     for (let i = 0; i < length; i++) {
-      hiddenStr = hiddenStr + "*";
+      hiddenStr = hiddenStr + '*';
     }
     setPasswordShow(hiddenStr);
   };
@@ -43,20 +30,18 @@ const PasswordField: FC = () => {
   return (
     <Box
       sx={{
-        display: "flex",
-        position: "relative",
-        flexDirection: "column",
-        width: "335px",
-        m: "auto",
+        display: 'flex',
+        position: 'relative',
+        flexDirection: 'column',
+        width: '335px',
+        m: 'auto',
       }}
     >
       <Palette>
-        <StyledTextField
+        <CommonTextField
           label="Password"
-          variant="outlined"
-          color="primary"
           value={passwordShow}
-          id="validation-outlined-input"
+          placeholder="Password"
           onChange={(e) => handleOnChange(e.target.value)}
           onFocus={() => setCheckVisible(true)}
           onBlur={() => setCheckVisible(false)}
@@ -64,11 +49,11 @@ const PasswordField: FC = () => {
         {checkVisible && (
           <Checklist
             rules={[
-              "uppercase",
-              "lowercase",
-              "number",
-              "specialChar",
-              "minLength",
+              'uppercase',
+              'lowercase',
+              'number',
+              'specialChar',
+              'minLength',
             ]}
             minLength={8}
             value={password}

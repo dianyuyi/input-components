@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 export const Modal = styled.div`
   display: flex;
@@ -22,14 +22,14 @@ export const List = styled.li`
   display: flex;
   flex-direction: row;
   align-items: center;
-  color: #FFFFFF;
-  gap: 10px;  
+  color: #ffffff;
+  gap: 10px;
   padding: 8px 0;
 
   & > span {
     text-align: left;
     line-height: 150%;
 
-    opacity: ${(props) => (props.className === "valid" ? 1 : 0.5)};
+    opacity: ${(props) => (props.className === 'valid' ? 1 : 0.5)};
   }
 `;
