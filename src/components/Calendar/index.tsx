@@ -30,7 +30,7 @@ const Calendar: FC = () => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [viewType, setViewType] = useState<string>('day');
   const [pickerDate, setPickerDate] = useState<string>(
-      format(value ?? new Date(), 'MMMM yyyy'),
+    format(value ?? new Date(), 'MMMM yyyy')
   );
 
   const handlePickerDate = (value: Date, formatStr: string) => {

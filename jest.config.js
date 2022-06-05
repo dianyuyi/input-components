@@ -1,7 +1,11 @@
 module.exports = {
   setupFiles: ['<rootDir>/jest.setup.ts'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
-  testPathIgnorePatterns: ['<rootDir>/dist/', '<rootDir>/node_modules/', '<rootDir>/.next/'],
+  testPathIgnorePatterns: [
+    '<rootDir>/dist/',
+    '<rootDir>/node_modules/',
+    '<rootDir>/.next/',
+  ],
   moduleNameMapper: {
     '\\.(css|less)$': 'identity-obj-proxy',
     '^config(.*)$': '<rootDir>/config$1',
@@ -9,7 +13,7 @@ module.exports = {
     '^pages(.*)$': '<rootDir>/pages$1',
   },
   transform: {
-    '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }],
+    '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', {presets: ['next/babel']}],
   },
   collectCoverageFrom: [
     './{src,pages}/**/*.{ts,tsx,js,jsx}',
@@ -19,4 +23,4 @@ module.exports = {
     '!**/{config,constants,styles,types,__fixtures__}/**',
   ],
   watchPathIgnorePatterns: ['dist'],
-}
+};
