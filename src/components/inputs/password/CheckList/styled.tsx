@@ -24,11 +24,14 @@ export const List = styled.li`
   align-items: center;
   color: #ffffff;
   gap: 10px;
-  padding: 8px 0;
+  padding: 6px 0;
+  margin: 4px 0;
 
   & > span {
     text-align: left;
+    font-size: 14px;
     line-height: 150%;
+    letter-spacing: 0.25px;
 
     opacity: ${(props) => (props.className === 'valid' ? 1 : 0.5)};
   }

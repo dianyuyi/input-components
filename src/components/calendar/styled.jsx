@@ -6,6 +6,10 @@ export const CalendarContainer = styled.div`
   align-items: center;
   margin: 0 auto;
   flex-direction: column;
+
+  .MuiTextField-root {
+    width: 335px;
+  }
 `;
 export const CustomBox = styled.div`
   font-family: 'Inter';
@@ -14,6 +18,8 @@ export const CustomBox = styled.div`
   height: 469px;
   justify-content: center;
   align-items: center;
+  margin: 12px 0;
+  padding: 18px 0;
   color: #ffffff;
   & .MuiPickersToolbar-penIconButton {
     display: none;
@@ -22,7 +28,7 @@ export const CustomBox = styled.div`
 
 export const CustomCalendarWrapper = styled.div`
   width: 320px;
-  height: 240px;
+  max-height: 260px;
   overflow-y: scroll;
   & .MuiCalendarPicker-root {
     > div:first-of-type {
@@ -33,14 +39,20 @@ export const CustomCalendarWrapper = styled.div`
     opacity: 0.5;
   }
   & .MuiPickersDay-root {
+    font-size: 14px;
     &:hover {
       color: rgba(0, 0, 0, 0.87);
       background: #fff;
     }
   }
-
   & .PrivatePickersSlideTransition-root {
-    min-height: 200px;
+    > div[role='grid'] > div[role='row'] {
+      margin: 0;
+    }
+  }
+
+  & .MuiYearPicker-root {
+    max-height: 240px;
   }
   & .PrivatePickersMonth-root,
   .PrivatePickersYear-yearButton {
@@ -95,18 +107,19 @@ export const CustomIcon = styled.div`
 `;
 export const SwitchBar = styled.div`
   width: 320px;
-  height: 48px;
+  height: 40px;
   display: flex;
   justify-content: space-between;
 `;
 export const PickerButton = styled(InitialButton)`
   color: #fff;
+  font-size: 16px;
 `;
 export const ArrowButton = styled(InitialButton)`
   color: #fff;
+  margin: 0 8px;
 
   & svg {
-    width: 8px;
     height: 12px;
   }
 `;

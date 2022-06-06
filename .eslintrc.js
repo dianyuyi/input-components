@@ -33,5 +33,17 @@ module.exports = {
         ignoredNodes: ['ConditionalExpression'],
       },
     ],
+    'prettier/prettier': [
+      'error',
+      {
+				printWidth: 80,
+        singleQuote: true,
+        semi: true,
+        endOfLine: 'auto',
+        bracketSpacing: false,
+        bracketSameLine: false,
+        trailingComma: 'es5',
+      },
+    ],
   },
 };

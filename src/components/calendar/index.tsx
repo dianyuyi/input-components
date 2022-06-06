@@ -96,7 +96,7 @@ const Calendar: FC = () => {
   };
 
   const handleViewSwitch = (type: string, formatStr: string) => {
-    const viewDate = handlePickerDate(value, formatStr);
+    const viewDate = handlePickerDate(value ?? new Date(), formatStr);
     setPickerDate(viewDate);
     setViewType(type);
   };
@@ -123,7 +123,7 @@ const Calendar: FC = () => {
                 <ToolBar>
                   <SubLabel>{'TEXT'}</SubLabel>
                   <Maintitle>
-                    {handlePickerDate(value ?? new Date(), 'EEE, MMM d')}
+                    {handlePickerDate(value ?? new Date(), 'EEE, yyyy')}
                   </Maintitle>
                 </ToolBar>
                 <SwitchBar>

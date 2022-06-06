@@ -88,7 +88,7 @@ const ReactPasswordProps: React.FC<ReactPasswordChecklistProps> = ({
         }
         return false;
       })(),
-      message: messages.lowercase || 'Password has a lowercase letter.',
+      message: messages.lowercase || 'Have at least one lowercase letter.',
     },
     number: {
       valid: /\d/g.test(value),
@@ -102,14 +102,11 @@ const ReactPasswordProps: React.FC<ReactPasswordChecklistProps> = ({
     },
     minLength: {
       valid: value.length >= (minLength || 100),
-      message:
-        messages.minLength || `Password has more than ${minLength} characters.`,
+      message: messages.minLength || `Longer than ${minLength} characters.`,
     },
     maxLength: {
       valid: value.length <= (maxLength || 16),
-      message:
-        messages.maxLength ||
-        `Password has no more than ${maxLength} characters.`,
+      message: messages.maxLength || `Less than ${maxLength} characters.`,
     },
     match: {
       valid: value.length > 0 && value === valueAgain,
